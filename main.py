@@ -4,7 +4,6 @@ import os
 import requests
 from flask import Flask, request
 from bs4 import BeautifulSoup
-TOKEN = '<api_token>'
 bot_token = '1000110388:AAFdfrAD61GecD7sphhi2nvyGb_R_vu0xQc'
 bot = telebot.TeleBot(token=bot_token)
 server = Flask(__name__)
@@ -57,7 +56,7 @@ def getMessage():
 @server.route("/")
 def webhook():
     bot.remove_webhook()
-    bot.set_webhook(url='https://tdsbotmtd.herokuapp.com/' + bot_token)
+    bot.set_webhook(url='https://serene-depths-87810.herokuapp.com/' + bot_token)
     return "!", 200
 
 
