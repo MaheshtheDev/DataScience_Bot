@@ -1,7 +1,13 @@
 import telebot
 import time
+import os
 import requests
+from flask import Flask, request
 from bs4 import BeautifulSoup
+TOKEN = '<api_token>'
+bot_token = '1000110388:AAFdfrAD61GecD7sphhi2nvyGb_R_vu0xQc'
+bot = telebot.TeleBot(token=bot_token)
+server = Flask(__name__)
 
 page=requests.get("https://towardsdatascience.com/data-science/home")
 soup = BeautifulSoup(page.content,'html.parser')
@@ -25,8 +31,6 @@ heading_ll = "*Latest Articles on Data Science in Towards DataScience*"
 lat_links = ""
 for i in range(5,11):
     lat_links += "\n" + str(i-4) +". <a href=\""+links[i]+"\">"+art_name[i]+"</a>"
-bot_token = '1000110388:AAFdfrAD61GecD7sphhi2nvyGb_R_vu0xQc'
-bot = telebot.TeleBot(token=bot_token)
 
 @bot.message_handler(commands=['start','help'])
 def send_welcome(message):
@@ -44,8 +48,18 @@ def send_message(message):
     bot.send_message(message.chat.id,heading_ll,parse_mode='Markdown')
     bot.send_message(message.chat.id,lat_links,parse_mode='HTML')
 
-while True:
-    try:
-        bot.polling()
-    except Exception:
-        time.sleep(15)
+@server.route('/' + bot_token, methods=['POST'])
+def getMessage():
+    bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
+    return "!", 200
+
+
+@server.route("/")
+def webhook():
+    bot.remove_webhook()
+    bot.set_webhook(url='https://your_heroku_project.com/' + bot_token)
+    return "!", 200
+
+
+if __name__ == "__main__":
+    server.run(host="0.0.0.0", port=int(os.environ.get('PORT', 5000)))
