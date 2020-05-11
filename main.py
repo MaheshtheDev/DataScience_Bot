@@ -56,7 +56,7 @@ def getMessage():
 @server.route("/")
 def webhook():
     bot.remove_webhook()
-    bot.set_webhook(url='https://serene-depths-87810.herokuapp.com/' + bot_token)
+    bot.set_webhook(url='https://salty-scrubland-38376.herokuapp.com/' + bot_token)
     return "!", 200
 
 
