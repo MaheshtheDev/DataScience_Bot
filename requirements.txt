@@ -60,7 +60,6 @@ pyrsistent==0.15.7
 pyTelegramBotAPI==3.6.7
 python-dateutil==2.8.1
 pytz==2019.3
-pywin32==227
 pywinpty==0.5.7
 PyYAML==5.3.1
 pyzmq==18.1.1
