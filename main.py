@@ -57,7 +57,7 @@ def getMessage():
 @server.route("/")
 def webhook():
     bot.remove_webhook()
-    bot.set_webhook(url='https://your_heroku_project.com/' + bot_token)
+    bot.set_webhook(url='https://tdsbotmtd.herokuapp.com/' + bot_token)
     return "!", 200
 
 
