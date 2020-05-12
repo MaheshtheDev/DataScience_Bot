@@ -39,7 +39,7 @@ def send_welcome(message):
     bot.send_message(message.chat.id, 'Welcome!')
     bot.send_message(message.chat.id, 'Use /latest for Latest Articles \n Use /trend for Trending Articles \n Use /Dev for Developer Information')
 
-@bot.message_handler(commands=['Dev'])
+@bot.message_handler(commands=['dev'])
 def send_welcome(message):
     bot.send_message(message.chat.id, "I'm made by MaheshtheDev. He is passionate about Data Science \n You can Connect with my Developer:MaheshtheDev")
     bot.send_message(message.chat.id, sm_links,parse_mode='HTML')
