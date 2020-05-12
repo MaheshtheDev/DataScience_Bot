@@ -33,17 +33,15 @@ linkin = "https://www.linkedin.com/in/maheshthedev/"
 for i in range(5,11):
     lat_links += "\n" + str(i-4) +". <a href=\""+links[i]+"\">"+art_name[i]+"</a>"
 sm_links = "<a href=\""+linkin+"\">"+"Linked In"+"</a>"
-sm_links +="\n" + "<a href=\""+git_acc+"\">"+"Github"+"</a>"
+sm_links +="·" + "<a href=\""+git_acc+"\">"+"Github"+"</a>"
 @bot.message_handler(commands=['start','help'])
 def send_welcome(message):
     bot.send_message(message.chat.id, 'Welcome!')
-    bot.send_message(message.chat.id, 'Use /latest for Latest Articles \n Use /trend for Trending Articles')
-    bot.send_message(message.chat.id, 'Type Dev for Developer Information!')
+    bot.send_message(message.chat.id, 'Use /latest for Latest Articles \n Use /trend for Trending Articles \n Use /Dev for Developer Information')
 
 @bot.message_handler(commands=['Dev'])
 def send_welcome(message):
-    bot.send_message(message.chat.id, "I'm made by MaheshtheDev. He is passionate about Data Science")
-    bot.send_message(message.chat.id, "You can Connect with my Developer MaheshtheDev")
+    bot.send_message(message.chat.id, "I'm made by MaheshtheDev. He is passionate about Data Science \n You can Connect with my Developer:MaheshtheDev")
     bot.send_message(message.chat.id, sm_links,parse_mode='HTML')
 
 @bot.message_handler(commands=['trend'])
