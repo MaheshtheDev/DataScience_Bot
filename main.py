@@ -28,9 +28,12 @@ for i in range(5):
 
 heading_ll = "*Latest Articles on Data Science in Towards DataScience*"
 lat_links = ""
+git_acc = "https://github.com/maheshthedev"
+linkin = "https://www.linkedin.com/in/maheshthedev/"
 for i in range(5,11):
     lat_links += "\n" + str(i-4) +". <a href=\""+links[i]+"\">"+art_name[i]+"</a>"
-sm_links = "<a href="https:\\\www.linkedin.com\in\maheshthedev\">" + "Linked In" +"</a>" + "\n" + "<a href="https:\\\github.com\maheshthedev">" + "Github" +"</a>"
+sm_links = "<a href=\""+linkin+"\">"+"Linked In"+"</a>"
+sm_links +="\n" + "<a href=\""+git_acc+"\">"+"Github"+"</a>"
 @bot.message_handler(commands=['start','help'])
 def send_welcome(message):
     bot.send_message(message.chat.id, 'Welcome!')
