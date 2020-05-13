@@ -31,7 +31,7 @@ lat_links = ""
 git_acc = "https://github.com/maheshthedev"
 linkin = "https://www.linkedin.com/in/maheshthedev/"
 for i in range(5,11):
-    lat_links += "\n" + str(i-4) +". <a href=\""+links[i]+"\">"+art_name[i]+"</a>"
+    lat_links += "\n" + str(i-4) +". <a href=\""+links[i]+"\">"+art_nameds[i]+"</a>"
 sm_links = "<a href=\""+linkin+"\">"+"LinkedIn"+"</a>"
 sm_links +=" · " + "<a href=\""+git_acc+"\">"+"GitHub"+"</a>"
 @bot.message_handler(commands=['start','help'])
