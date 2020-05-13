@@ -40,22 +40,22 @@ for i in range(5,11):
 sm_links = "<a href=\""+linkin+"\">"+"LinkedIn"+"</a>"
 sm_links +=" · " + "<a href=\""+git_acc+"\">"+"GitHub"+"</a>"
 
-pageml=requests.get("https://towardsdatascience.com/machine-learning/home")
-soup = BeautifulSoup(pageml.content,'html.parser')
-t2 = soup.find_all(class_="u-contentSansBold u-lineHeightTightest u-xs-fontSize24 u-paddingBottom2 u-paddingTop5 u-fontSize32")
-art_nameml = []
-for i in t2:
-    j = list(i)
-    j1 = list(j[0])
-    art_nameds.append(j1[0])
-lml = []
-for i in soup.find_all('a',href=True):
-    lml.append(i['href'])
-linksml = lml[12:-6:4]
+# pageml=requests.get("https://towardsdatascience.com/machine-learning/home")
+# soup = BeautifulSoup(pageml.content,'html.parser')
+# t2 = soup.find_all(class_="u-contentSansBold u-lineHeightTightest u-xs-fontSize24 u-paddingBottom2 u-paddingTop5 u-fontSize32")
+# art_nameml = []
+# for i in t2:
+#     j = list(i)
+#     j1 = list(j[0])
+#     art_nameds.append(j1[0])
+# lml = []
+# for i in soup.find_all('a',href=True):
+#     lml.append(i['href'])
+# linksml = lml[12:-6:4]
 
-new_linksml = ""
-for i in range(5):
-    new_linksml += "\n" + str(i+1) +". <a href=\""+linksml[i]+"\">"+art_nameml[i]+"</a>" 
+# new_linksml = ""
+# for i in range(5):
+#     new_linksml += "\n" + str(i+1) +". <a href=\""+linksml[i]+"\">"+art_nameml[i]+"</a>" 
 
 @bot.message_handler(commands=['dev'])
 def send_welcome(message):
@@ -65,7 +65,7 @@ def send_welcome(message):
 @bot.message_handler(commands=['trend'])
 def send_message(message):
     bot.send_message(message.chat.id,heading,parse_mode='Markdown')
-    bot.send_message(message.chat.id,new_linksml,parse_mode='HTML')
+    bot.send_message(message.chat.id,new_linksds,parse_mode='HTML')
 
 @bot.message_handler(commands=['latest'])
 def send_message(message):
