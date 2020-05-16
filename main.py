@@ -71,13 +71,13 @@ def gen_markup2():
     return markup
 
 @bot.callback_query_handler(func=lambda call: True)
-def callback_query(call):
+def callback_query(call,message):
     if call.data == "dsl":
-        bot.send_message(heading,parse_mode='Markdown')
-        bot.send_message(new_linksds,parse_mode='HTML')
+        bot.send_message(message.chat.id,heading,parse_mode='Markdown')
+        bot.send_message(message.chat.id,new_linksds,parse_mode='HTML')
     elif call.data == "dst":
-        bot.send_message(heading_ll,parse_mode='Markdown')
-        bot.send_message(lat_links,parse_mode='HTML')    
+        bot.send_message(message.chat.id,heading_ll,parse_mode='Markdown')
+        bot.send_message(message.chat.id,lat_links,parse_mode='HTML')    
 
 @bot.message_handler(commands=['dev'])
 def send_welcome(message):
