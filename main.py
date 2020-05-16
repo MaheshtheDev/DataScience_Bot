@@ -48,10 +48,10 @@ linksviz = l[136:-6:4]
 
 headingdsl = "*Top Stories in Data Science*"
 headingdst = "*Latest Articles on Data Science*"
-headingmll = "*Top Stroies in Machine Learning"
-headingmlt = "*Latest Articles on Machine Learning"
+headingmll = "*Top Stories in Machine Learning*"
+headingmlt = "*Latest Articles on Machine Learning*"
 headingvizl = "*Top Stories in Visualization*"
-headingvizt = "*Latest Articles on Visualization"
+headingvizt = "*Latest Articles on Visualization*"
 
 new_linksdsl = ""
 for i in range(5):
