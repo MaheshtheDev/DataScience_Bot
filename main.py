@@ -92,20 +92,20 @@ def callback_query(call):
         bot.send_message(call.message.chat.id,headingdsl,parse_mode='Markdown')
         bot.send_message(call.message.chat.id,new_linksdsl,parse_mode='HTML')
     elif call.data == "mll":
-            bot.send_message(call.message.chat.id,headingmll,parse_mode='Markdown')
-            bot.send_message(call.message.chat.id,new_linksmll,parse_mode='HTML')
+        bot.send_message(call.message.chat.id,headingmll,parse_mode='Markdown')
+        bot.send_message(call.message.chat.id,new_linksmll,parse_mode='HTML')
     elif call.data == "dst":
         bot.send_message(call.message.chat.id,headingdst,parse_mode='Markdown')
         bot.send_message(call.message.chat.id,lat_linksdst,parse_mode='HTML')        
     elif call.data == "mlt":
-            bot.send_message(call.message.chat.id,headingmlt,parse_mode='Markdown')
-            bot.send_message(call.message.chat.id,lat_linksmlt,parse_mode='HTML')    
+        bot.send_message(call.message.chat.id,headingmlt,parse_mode='Markdown')
+        bot.send_message(call.message.chat.id,lat_linksmlt,parse_mode='HTML')    
     elif call.data == "vizl":
-            bot.send_message(call.message.chat.id,headingvizl,parse_mode='Markdown')
-            bot.send_message(call.message.chat.id,new_linksvizl,parse_mode='HTML')    
+        bot.send_message(call.message.chat.id,headingvizl,parse_mode='Markdown')
+        bot.send_message(call.message.chat.id,new_linksvizl,parse_mode='HTML')    
     elif call.data == "vizt":
-            bot.send_message(call.message.chat.id,headingvizt,parse_mode='Markdown')
-            bot.send_message(call.message.chat.id,lat_linksvizt,parse_mode='HTML')    
+        bot.send_message(call.message.chat.id,headingvizt,parse_mode='Markdown')
+        bot.send_message(call.message.chat.id,lat_linksvizt,parse_mode='HTML')    
 
 @bot.message_handler(commands=['start','help'])
 def send_welcome(message):
@@ -119,11 +119,11 @@ def send_welcome(message):
 
 @bot.message_handler(commands=['trend'])
 def send_message(message):
-    bot.send_message(message.chat.id,"Select the Category", reply_markup=gen_markup1())
+    bot.send_message(message.chat.id,"Select the Category", reply_markup=gen_markup2())
 
 @bot.message_handler(commands=['latest'])
 def send_message(message):
-    bot.send_message(message.chat.id,"Select the Category", reply_markup=gen_markup2())
+    bot.send_message(message.chat.id,"Select the Category", reply_markup=gen_markup1())
 
 @server.route('/' + bot_token, methods=['POST'])
 def getMessage():
