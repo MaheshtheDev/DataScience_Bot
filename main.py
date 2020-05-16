@@ -91,12 +91,12 @@ def callback_query(call):
     if call.data == "dsl":
         bot.send_message(call.message.chat.id,headingdsl,parse_mode='Markdown')
         bot.send_message(call.message.chat.id,new_linksdsl,parse_mode='HTML')
-    elif call.data == "dst":
-        bot.send_message(call.message.chat.id,headingdst,parse_mode='Markdown')
-        bot.send_message(call.message.chat.id,lat_linksdst,parse_mode='HTML')    
     elif call.data == "mll":
             bot.send_message(call.message.chat.id,headingmll,parse_mode='Markdown')
-            bot.send_message(call.message.chat.id,new_linksmll,parse_mode='HTML')    
+            bot.send_message(call.message.chat.id,new_linksmll,parse_mode='HTML')
+    elif call.data == "dst":
+        bot.send_message(call.message.chat.id,headingdst,parse_mode='Markdown')
+        bot.send_message(call.message.chat.id,lat_linksdst,parse_mode='HTML')        
     elif call.data == "mlt":
             bot.send_message(call.message.chat.id,headingmlt,parse_mode='Markdown')
             bot.send_message(call.message.chat.id,lat_linksmlt,parse_mode='HTML')    
