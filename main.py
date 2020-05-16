@@ -91,19 +91,19 @@ def callback_query(call):
     if call.data == "dsl":
         bot.send_message(call.message.chat.id,headingdsl,parse_mode='Markdown')
         bot.send_message(call.message.chat.id,new_linksdsl,parse_mode='HTML')
-    elif call.data == "mll":
+    if call.data == "mll":
         bot.send_message(call.message.chat.id,headingmll,parse_mode='Markdown')
         bot.send_message(call.message.chat.id,new_linksmll,parse_mode='HTML')
-    elif call.data == "vizl":
+    if call.data == "vizl":
         bot.send_message(call.message.chat.id,headingvizl,parse_mode='Markdown')
         bot.send_message(call.message.chat.id,new_linksvizl,parse_mode='HTML')  
-    elif call.data == "dst":
+    if call.data == "dst":
         bot.send_message(call.message.chat.id,headingdst,parse_mode='Markdown')
         bot.send_message(call.message.chat.id,lat_linksdst,parse_mode='HTML')        
-    elif call.data == "mlt":
+    if call.data == "mlt":
         bot.send_message(call.message.chat.id,headingmlt,parse_mode='Markdown')
         bot.send_message(call.message.chat.id,lat_linksmlt,parse_mode='HTML')      
-    elif call.data == "vizt":
+    if call.data == "vizt":
         bot.send_message(call.message.chat.id,headingvizt,parse_mode='Markdown')
         bot.send_message(call.message.chat.id,lat_linksvizt,parse_mode='HTML')    
 
