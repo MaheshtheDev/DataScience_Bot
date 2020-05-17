@@ -5,7 +5,7 @@ import requests
 from flask import Flask, request
 from bs4 import BeautifulSoup
 from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
-bot_token = '1193768093:AAFOCKx8uBDiyKJQjetH037-n7H4pMjehGY'
+bot_token = '1193768093:AAH9yTXq77fgpWHhv1HsusfBeunEo135fDc'
 bot = telebot.TeleBot(token=bot_token)
 server = Flask(__name__)
 
