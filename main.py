@@ -114,7 +114,7 @@ def send_welcome(message):
 
 @bot.message_handler(commands=['dev'])
 def send_welcome(message):
-    bot.send_message(message.chat.id, "I'm made by MaheshtheDev.\nHe is passionate about Data Science \nYou can Connect with my Developer!")
+    bot.send_message(message.chat.id, "I'm made by MaheshtheDev.\nYou can Connect with my Developer!")
     bot.send_message(message.chat.id, sm_links,parse_mode='HTML')
 
 @bot.message_handler(commands=['trend'])
