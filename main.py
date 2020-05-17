@@ -53,23 +53,23 @@ headingmlt = "*Latest Articles on Machine Learning*"
 headingvizl = "*Top Stories in Visualization*"
 headingvizt = "*Latest Articles on Visualization*"
 
-new_linksdsl = ""
+new_linksdsl = "<h3>"+headingdsl+"</h3>"
 for i in range(5):
     new_linksdsl += "\n" + str(i+1) +". <a href=\""+linksds[i]+"\">"+art_nameds[i]+"</a>" 
-new_linksmll = ""
+new_linksmll = "<h3>"+headingmll+"</h3>"
 for i in range(5):
     new_linksmll += "\n" + str(i+1) +". <a href=\""+linksml[i]+"\">"+art_nameml[i]+"</a>" 
-new_linksvizl = ""
+new_linksvizl = "<h3>"+headingvizl+"</h3>"
 for i in range(5):
     new_linksvizl += "\n" + str(i+1) +". <a href=\""+linksviz[i]+"\">"+art_nameviz[i]+"</a>" 
 
-lat_linksdst = ""
+lat_linksdst = "<h3>"+headingdst+"</h3>"
 for i in range(5,11):
     lat_linksdst += "\n" + str(i-4) +". <a href=\""+linksds[i]+"\">"+art_nameds[i]+"</a>"
-lat_linksmlt = ""
+lat_linksmlt = "<h3>"+headingmlt+"</h3>"
 for i in range(5,11):
     lat_linksmlt += "\n" + str(i-4) +". <a href=\""+linksml[i]+"\">"+art_nameml[i]+"</a>"
-lat_linksvizt = ""
+lat_linksvizt = "<h3>"+headingvizt+"</h3>"
 for i in range(5,11):
     lat_linksvizt += "\n" + str(i-4) +". <a href=\""+linksviz[i]+"\">"+art_nameviz[i]+"</a>"
 
@@ -89,22 +89,22 @@ def gen_markup2():
 @bot.callback_query_handler(func=lambda call: True)
 def callback_query(call):
     if call.data == "dsl":
-        bot.send_message(call.message.chat.id,headingdsl,parse_mode='Markdown')
+        # bot.send_message(call.message.chat.id,headingdsl,parse_mode='Markdown')
         bot.send_message(call.message.chat.id,new_linksdsl,parse_mode='HTML')
     if call.data == "mll":
-        bot.send_message(call.message.chat.id,headingmll,parse_mode='Markdown')
+        # bot.send_message(call.message.chat.id,headingmll,parse_mode='Markdown')
         bot.send_message(call.message.chat.id,new_linksmll,parse_mode='HTML')
     if call.data == "vizl":
-        bot.send_message(call.message.chat.id,headingvizl,parse_mode='Markdown')
+        # bot.send_message(call.message.chat.id,headingvizl,parse_mode='Markdown')
         bot.send_message(call.message.chat.id,new_linksvizl,parse_mode='HTML')  
     if call.data == "dst":
-        bot.send_message(call.message.chat.id,headingdst,parse_mode='Markdown')
+        # bot.send_message(call.message.chat.id,headingdst,parse_mode='Markdown')
         bot.send_message(call.message.chat.id,lat_linksdst,parse_mode='HTML')        
     if call.data == "mlt":
-        bot.send_message(call.message.chat.id,headingmlt,parse_mode='Markdown')
+        # bot.send_message(call.message.chat.id,headingmlt,parse_mode='Markdown')
         bot.send_message(call.message.chat.id,lat_linksmlt,parse_mode='HTML')      
     if call.data == "vizt":
-        bot.send_message(call.message.chat.id,headingvizt,parse_mode='Markdown')
+        # bot.send_message(call.message.chat.id,headingvizt,parse_mode='Markdown')
         bot.send_message(call.message.chat.id,lat_linksvizt,parse_mode='HTML')    
 
 @bot.message_handler(commands=['start','help'])
