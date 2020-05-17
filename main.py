@@ -5,7 +5,7 @@ import requests
 from flask import Flask, request
 from bs4 import BeautifulSoup
 from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
-bot_token = '915897906:AAH2t7ScAGE8dVP0hos6oakwW_xHRanA1RY'
+bot_token = '1193768093:AAH9yTXq77fgpWHhv1HsusfBeunEo135fDc'
 bot = telebot.TeleBot(token=bot_token)
 server = Flask(__name__)
 
@@ -124,6 +124,9 @@ def send_message(message):
 @bot.message_handler(commands=['latest'])
 def send_message(message):
     bot.send_message(message.chat.id,"Select the Category", reply_markup=gen_markup1())
+
+# bot.remove_webhook()
+# bot.polling()
 
 @server.route('/' + bot_token, methods=['POST'])
 def getMessage():
