@@ -53,23 +53,23 @@ headingmll = "Latest Articles on Machine Learning"
 headingvizt = "Top Stories in Visualization"
 headingvizl = "Latest Articles on Visualization"
 
-new_linksdsl = "<h3>"+headingdsl+"</h3>"
+new_linksdsl = "<header>"+"<h3>"+headingdsl+"</h3>"+ "</header>"
 for i in range(5):
     new_linksdsl += "\n" + str(i+1) +". <a href=\""+linksds[i]+"\">"+art_nameds[i]+"</a>" 
-new_linksmll = "<h3>"+headingmll+"</h3>"
+new_linksmll = "<header>"+"<h3>"+headingmll+"</h3>"+"</header>"
 for i in range(5):
     new_linksmll += "\n" + str(i+1) +". <a href=\""+linksml[i]+"\">"+art_nameml[i]+"</a>" 
-new_linksvizl = "<h3>"+headingvizl+"</h3>"
+new_linksvizl = "<header>"+"<h3>"+headingvizl+"</h3>"+"</header>"
 for i in range(5):
     new_linksvizl += "\n" + str(i+1) +". <a href=\""+linksviz[i]+"\">"+art_nameviz[i]+"</a>" 
 
-lat_linksdst = "<h3>"+headingdst+"</h3>"
+lat_linksdst = "<header>"+"<h3>"+headingdst+"</h3>"+"</header>"
 for i in range(5,11):
     lat_linksdst += "\n" + str(i-4) +". <a href=\""+linksds[i]+"\">"+art_nameds[i]+"</a>"
-lat_linksmlt = "<h3>"+headingmlt+"</h3>"
+lat_linksmlt = "<header>"+"<h3>"+headingmlt+"</h3>"+"</header>"
 for i in range(5,11):
     lat_linksmlt += "\n" + str(i-4) +". <a href=\""+linksml[i]+"\">"+art_nameml[i]+"</a>"
-lat_linksvizt = "<h3>"+headingvizt+"</h3>"
+lat_linksvizt = "<header>"+"<h3>"+headingvizt+"</h3>"+"</header>"
 for i in range(5,11):
     lat_linksvizt += "\n" + str(i-4) +". <a href=\""+linksviz[i]+"\">"+art_nameviz[i]+"</a>"
 
