@@ -4,7 +4,8 @@ import os
 import requests
 from flask import Flask, request
 from bs4 import BeautifulSoup
-from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
+from telebot import types
+from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup, ReplyKeyboardRemove, ForceReply
 bot_token = '1193768093:AAH9yTXq77fgpWHhv1HsusfBeunEo135fDc'
 bot = telebot.TeleBot(token=bot_token)
 server = Flask(__name__)
@@ -74,42 +75,49 @@ for i in range(5,11):
     lat_linksvizt += "\n" + str(i-4) +". <a href=\""+linksviz[i]+"\">"+art_nameviz[i]+"</a>"
 
 
-def gen_markup1():
-    markup = InlineKeyboardMarkup()
-    markup.row_width = 1
-    markup.add(InlineKeyboardButton("Data Science", callback_data="dsl"),InlineKeyboardButton("Machine Learning",callback_data="mll"),InlineKeyboardButton("Visualization",callback_data="vizl"))
-    return markup
+# def gen_markup1():
+#     markup = InlineKeyboardMarkup()
+#     markup.row_width = 1
+#     markup.add(InlineKeyboardButton("Data Science", callback_data="dsl"),InlineKeyboardButton("Machine Learning",callback_data="mll"),InlineKeyboardButton("Visualization",callback_data="vizl"))
+#     return markup
+hidekeyboard = types.ReplyKeyboardRemove()
+def reply_markup1():
+    markupl = ReplyKeyboardMarkup()
+    markupl.row_width = 1
+    item_bt1 = types.KeyboardButton('/l Data Science')
+    item_bt2 = types.KeyboardButton('/l Machine Learning')
+    item_bt3 = types.KeyboardButton('/l Data Vizualization')
+    markupl.add(item_bt1,item_bt2,item_bt3)
+    return markupl
 
-def gen_markup2():
-    markup = InlineKeyboardMarkup()
-    markup.row_width = 1
-    markup.add(InlineKeyboardButton("Data Science", callback_data="dst"),InlineKeyboardButton("Machine Learning",callback_data="mlt"),InlineKeyboardButton("Visualization",callback_data="vizt"))
-    return markup
+def reply_markup2():
+    markupl = ReplyKeyboardMarkup()
+    markupl.row_width = 1
+    item_bt1 = types.KeyboardButton('/t Data Science')
+    item_bt2 = types.KeyboardButton('/t Machine Learning')
+    item_bt3 = types.KeyboardButton('/t Data Vizualization')
+    markupl.add(item_bt1,item_bt2,item_bt3)
+    return markupl
 
-@bot.callback_query_handler(func=lambda call: True)
-def callback_query(call):
-    if call.data == "dsl":
-        # bot.send_message(call.message.chat.id,headingdsl,parse_mode='Markdown')
-        bot.send_message(call.message.chat.id,new_linksdsl,parse_mode='HTML')
-    if call.data == "mll":
-        # bot.send_message(call.message.chat.id,headingmll,parse_mode='Markdown')
-        bot.send_message(call.message.chat.id,new_linksmll,parse_mode='HTML')
-    if call.data == "vizl":
-        # bot.send_message(call.message.chat.id,headingvizl,parse_mode='Markdown')
-        bot.send_message(call.message.chat.id,new_linksvizl,parse_mode='HTML')  
-    if call.data == "dst":
-        # bot.send_message(call.message.chat.id,headingdst,parse_mode='Markdown')
-        bot.send_message(call.message.chat.id,lat_linksdst,parse_mode='HTML')        
-    if call.data == "mlt":
-        # bot.send_message(call.message.chat.id,headingmlt,parse_mode='Markdown')
-        bot.send_message(call.message.chat.id,lat_linksmlt,parse_mode='HTML')      
-    if call.data == "vizt":
-        # bot.send_message(call.message.chat.id,headingvizt,parse_mode='Markdown')
-        bot.send_message(call.message.chat.id,lat_linksvizt,parse_mode='HTML')    
+@bot.message_handler(func=lambda message: message.text in ['/l Data Science','/l Machine Learning','/l Data Vizualization','/t Data Science','/t Machine Learning','/t Data Vizualization'])
+def send_message(message):
+    bot.send_chat_action(message.chat.id, 'typing')
+    if message.text == "/l Data Science":
+        bot.send_message(message.chat.id,new_linksdsl,parse_mode='HTML',reply_markup=hidekeyboard)
+    if message.text == "/l Machine Learning":
+        bot.send_message(message.chat.id,new_linksmll,parse_mode='HTML',reply_markup=hidekeyboard)
+    if message.text == "/l Data Vizualization":
+        bot.send_message(message.chat.id,new_linksvizl,parse_mode='HTML',reply_markup=hidekeyboard)  
+    if message.text == "/t Data Science":
+        bot.send_message(message.chat.id,lat_linksdst,parse_mode='HTML',reply_markup=hidekeyboard)        
+    if message.text == "/t Machine Learning":
+        bot.send_message(message.chat.id,lat_linksmlt,parse_mode='HTML',reply_markup=hidekeyboard)      
+    if message.text == "/t Data Vizualization":
+        bot.send_message(message.chat.id,lat_linksvizt,parse_mode='HTML',reply_markup=hidekeyboard)
 
 @bot.message_handler(commands=['start','help'])
 def send_welcome(message):
-    bot.send_message(message.chat.id, 'Welcome!')
+    bot.send_message(message.chat.id, 'Welcome, Pal!')
     bot.send_message(message.chat.id, 'Use /latest for Latest Articles \nUse /trend for Trending Articles \nUse /dev for Developer Information')
 
 @bot.message_handler(commands=['dev'])
@@ -119,11 +127,11 @@ def send_welcome(message):
 
 @bot.message_handler(commands=['trend'])
 def send_message(message):
-    bot.send_message(message.chat.id,"Select the Category", reply_markup=gen_markup2())
+    bot.send_message(message.chat.id,"Select the Category", reply_markup=reply_markup2())
 
 @bot.message_handler(commands=['latest'])
 def send_message(message):
-    bot.send_message(message.chat.id,"Select the Category", reply_markup=gen_markup1())
+    bot.send_message(message.chat.id,"Select the Category", reply_markup=reply_markup1())
 
 # bot.remove_webhook()
 # bot.polling()
