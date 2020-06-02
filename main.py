@@ -84,35 +84,35 @@ hidekeyboard = types.ReplyKeyboardRemove()
 def reply_markup1():
     markupl = ReplyKeyboardMarkup()
     markupl.row_width = 1
-    item_bt1 = types.KeyboardButton('latest Data Science')
-    item_bt2 = types.KeyboardButton('latest Machine Learning')
-    item_bt3 = types.KeyboardButton('latest Data Vizualization')
+    item_bt1 = types.KeyboardButton('Data Science (DSl)')
+    item_bt2 = types.KeyboardButton('Machine Learning (MLl)')
+    item_bt3 = types.KeyboardButton('Data Vizualization (DVl)')
     markupl.add(item_bt1,item_bt2,item_bt3)
     return markupl
 
 def reply_markup2():
     markupl = ReplyKeyboardMarkup()
     markupl.row_width = 1
-    item_bt1 = types.KeyboardButton('trending Data Science')
-    item_bt2 = types.KeyboardButton('trending Machine Learning')
-    item_bt3 = types.KeyboardButton('trending Data Vizualization')
+    item_bt1 = types.KeyboardButton('Data Science (DSt)')
+    item_bt2 = types.KeyboardButton('Machine Learning (MLt)')
+    item_bt3 = types.KeyboardButton('Data Vizualization (DVt)')
     markupl.add(item_bt1,item_bt2,item_bt3)
     return markupl
 
-@bot.message_handler(func=lambda message: message.text in ['latest Data Science','latest Machine Learning','latest Data Vizualization','trending Data Science','trending Machine Learning','trending Data Vizualization'])
+@bot.message_handler(func=lambda message: message.text in ['Data Science (DSl)','Machine Learning (MLl)','Data Vizualization (DVl)','Data Science (DSt)','Machine Learning (MLt)','Data Vizualization (DVt)'])
 def send_message(message):
     bot.send_chat_action(message.chat.id, 'typing')
-    if message.text == "latest Data Science":
+    if message.text == "Data Science (DSl)":
         bot.send_message(message.chat.id,new_linksdsl,parse_mode='HTML',reply_markup=hidekeyboard)
-    if message.text == "latest Machine Learning":
+    if message.text == "Machine Learning (MLl)":
         bot.send_message(message.chat.id,new_linksmll,parse_mode='HTML',reply_markup=hidekeyboard)
-    if message.text == "latest Data Vizualization":
+    if message.text == "Data Vizualization (DVl)":
         bot.send_message(message.chat.id,new_linksvizl,parse_mode='HTML',reply_markup=hidekeyboard)  
-    if message.text == "trending Data Science":
+    if message.text == "Data Science (DSt)":
         bot.send_message(message.chat.id,lat_linksdst,parse_mode='HTML',reply_markup=hidekeyboard)        
-    if message.text == "trending Machine Learning":
+    if message.text == "Machine Learning (MLt)":
         bot.send_message(message.chat.id,lat_linksmlt,parse_mode='HTML',reply_markup=hidekeyboard)      
-    if message.text == "trending Data Vizualization":
+    if message.text == "Data Vizualization (DVt)":
         bot.send_message(message.chat.id,lat_linksvizt,parse_mode='HTML',reply_markup=hidekeyboard)
 
 @bot.message_handler(commands=['start','help'])
