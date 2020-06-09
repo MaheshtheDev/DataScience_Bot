@@ -79,11 +79,6 @@ for i in range(5,11):
     lat_linksvizt += "\n" + str(i-4) +". <a href=\""+linksviz[i]+"\">"+art_nameviz[i]+"</a>"
 
 
-# def gen_markup1():
-#     markup = InlineKeyboardMarkup()
-#     markup.row_width = 1
-#     markup.add(InlineKeyboardButton("Data Science", callback_data="dsl"),InlineKeyboardButton("Machine Learning",callback_data="mll"),InlineKeyboardButton("Visualization",callback_data="vizl"))
-#     return markup
 hidekeyboard = types.ReplyKeyboardRemove()
 def reply_markup1():
     markupl = ReplyKeyboardMarkup()
