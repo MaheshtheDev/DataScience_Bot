@@ -18,19 +18,23 @@ sm_links +=" · " + "<a href=\""+linkin+"\">"+"LinkedIn"+"</a>"
 pageds=requests.get("https://towardsdatascience.com/data-science/home")
 soup1 = BeautifulSoup(pageds.content,'html.parser')
 t2 = soup1.find_all(class_="u-contentSansBold u-lineHeightTightest u-xs-fontSize24 u-paddingBottom2 u-paddingTop5 u-fontSize32")
-l = []
+lds = []
 for i in soup1.find_all('a',href=True):
-    l.append(i['href'])
+    lds.append(i['href'])
+
 pageml=requests.get("https://towardsdatascience.com/machine-learning/home")
 soup2 = BeautifulSoup(pageml.content,'html.parser')
 t3 = soup2.find_all(class_="u-contentSansBold u-lineHeightTightest u-xs-fontSize24 u-paddingBottom2 u-paddingTop5 u-fontSize32")
+lml = []
 for i in soup2.find_all('a',href=True):
-    l.append(i['href'])
+    lml.append(i['href'])
+
 pageviz=requests.get("https://towardsdatascience.com/data-visualization/home")
 soup3 = BeautifulSoup(pageviz.content,'html.parser')
 t4 = soup3.find_all(class_="u-contentSansBold u-lineHeightTightest u-xs-fontSize24 u-paddingBottom2 u-paddingTop5 u-fontSize32")
+lviz = []
 for i in soup3.find_all('a',href=True):
-    l.append(i['href'])
+    lviz.append(i['href'])
 t1 = t2 + t3 + t4
 
 art_name = []
@@ -43,9 +47,9 @@ art_nameds = art_name[:11]
 art_nameml = art_name[11:22]
 art_nameviz = art_name[22:]
 
-linksds = l[12:-130:4]
-linksml = l[74:-68:4]
-linksviz = l[136:-6:4]
+linksds = lds[13:-8:4]
+linksml = lml[13:-8:4]
+linksviz = lviz[13:-8:4]
 
 headingdst = "Top Stories in Data Science"
 headingdsl = "Latest Articles on Data Science"
