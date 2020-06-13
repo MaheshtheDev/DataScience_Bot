@@ -35,7 +35,14 @@ t4 = soup3.find_all(class_="u-contentSansBold u-lineHeightTightest u-xs-fontSize
 lviz = []
 for i in soup3.find_all('a',href=True):
     lviz.append(i['href'])
-t1 = t2 + t3 + t4
+
+pageai=requests.get("https://towardsdatascience.com/data-visualization/home")
+soup4 = BeautifulSoup(pageviz.content,'html.parser')
+t5 = soup4.find_all(class_="u-contentSansBold u-lineHeightTightest u-xs-fontSize24 u-paddingBottom2 u-paddingTop5 u-fontSize32")
+lai = []
+for i in soup3.find_all('a',href=True):
+    lai.append(i['href'])
+t1 = t2 + t3 + t4 + t5
 
 art_name = []
 for i in t1:
@@ -45,11 +52,13 @@ for i in t1:
 
 art_nameds = art_name[:11]
 art_nameml = art_name[11:22]
-art_nameviz = art_name[22:]
+art_nameviz = art_name[22:33]
+art_nameai = art_name[33:]
 
 linksds = lds[13:-8:4]
 linksml = lml[13:-8:4]
 linksviz = lviz[13:-8:4]
+linksai = lai[13:-8:4]
 
 headingdst = "Top Stories in Data Science"
 headingdsl = "Latest Articles on Data Science"
@@ -57,6 +66,8 @@ headingmlt = "Top Stories in Machine Learning"
 headingmll = "Latest Articles on Machine Learning"
 headingvizt = "Top Stories in Visualization"
 headingvizl = "Latest Articles on Visualization"
+headingait = "Top Stories in Artificial Intelligence"
+headingail = "Latest Articles on Artificial Intelligence"
 
 new_linksdsl = "<b>"+headingdsl+"</b>"
 for i in range(5):
@@ -67,6 +78,9 @@ for i in range(5):
 new_linksvizl = "<b>"+headingvizl+"</b>"
 for i in range(5):
     new_linksvizl += "\n" + str(i+1) +". <a href=\""+linksviz[i]+"\">"+art_nameviz[i]+"</a>" 
+new_linksail = "<b>"+headingail+"</b>"
+for i in range(5):
+    new_linksail += "\n" + str(i+1) +". <a href=\""+linksai[i]+"\">"+art_nameai[i]+"</a>" 
 
 lat_linksdst = "<b>"+headingdst+"</b>"
 for i in range(5,11):
@@ -77,6 +91,9 @@ for i in range(5,11):
 lat_linksvizt = "<b>"+headingvizt+"</b>"
 for i in range(5,11):
     lat_linksvizt += "\n" + str(i-4) +". <a href=\""+linksviz[i]+"\">"+art_nameviz[i]+"</a>"
+lat_linksait = "<b>"+headingait+"</b>"
+for i in range(5,11):
+    lat_linksait += "\n" + str(i-4) +". <a href=\""+linksai[i]+"\">"+art_nameai[i]+"</a>"
 
 
 hidekeyboard = types.ReplyKeyboardRemove()
@@ -86,7 +103,8 @@ def reply_markup1():
     item_bt1 = types.KeyboardButton('Data Science (DSl)')
     item_bt2 = types.KeyboardButton('Machine Learning (MLl)')
     item_bt3 = types.KeyboardButton('Data Vizualization (DVl)')
-    markupl.add(item_bt1,item_bt2,item_bt3)
+    item_bt4 = types.KeyboardButton('Artificial Intelligence (AIl)')
+    markupl.add(item_bt1,item_bt2,item_bt3,item_bt4)
     return markupl
 
 def reply_markup2():
@@ -95,10 +113,11 @@ def reply_markup2():
     item_bt1 = types.KeyboardButton('Data Science (DSt)')
     item_bt2 = types.KeyboardButton('Machine Learning (MLt)')
     item_bt3 = types.KeyboardButton('Data Vizualization (DVt)')
-    markupl.add(item_bt1,item_bt2,item_bt3)
+    item_bt4 = types.KeyboardButton('Artificial Intelligence (AIt)')
+    markupl.add(item_bt1,item_bt2,item_bt3,item_bt4)
     return markupl
 
-@bot.message_handler(func=lambda message: message.text in ['Data Science (DSl)','Machine Learning (MLl)','Data Vizualization (DVl)','Data Science (DSt)','Machine Learning (MLt)','Data Vizualization (DVt)'])
+@bot.message_handler(func=lambda message: message.text in ['Data Science (DSl)','Machine Learning (MLl)','Data Vizualization (DVl)','Artificial Intelligence (AIl)','Data Science (DSt)','Machine Learning (MLt)','Data Vizualization (DVt)','Artificial Intelligence (AIt)'])
 def send_message(message):
     bot.send_chat_action(message.chat.id, 'typing')
     if message.text == "Data Science (DSl)":
@@ -106,13 +125,17 @@ def send_message(message):
     if message.text == "Machine Learning (MLl)":
         bot.send_message(message.chat.id,new_linksmll,parse_mode='HTML',reply_markup=hidekeyboard)
     if message.text == "Data Vizualization (DVl)":
-        bot.send_message(message.chat.id,new_linksvizl,parse_mode='HTML',reply_markup=hidekeyboard)  
+        bot.send_message(message.chat.id,new_linksvizl,parse_mode='HTML',reply_markup=hidekeyboard)
+    if message.text == "Artificial Intelligence (AIl)":
+        bot.send_message(message.chat.id,new_linksail,parse_mode='HTML',reply_markup=hidekeyboard)  
     if message.text == "Data Science (DSt)":
         bot.send_message(message.chat.id,lat_linksdst,parse_mode='HTML',reply_markup=hidekeyboard)        
     if message.text == "Machine Learning (MLt)":
         bot.send_message(message.chat.id,lat_linksmlt,parse_mode='HTML',reply_markup=hidekeyboard)      
     if message.text == "Data Vizualization (DVt)":
         bot.send_message(message.chat.id,lat_linksvizt,parse_mode='HTML',reply_markup=hidekeyboard)
+    if message.text == "Artificial Intelligence (AIt)":
+        bot.send_message(message.chat.id,lat_linksait,parse_mode='HTML',reply_markup=hidekeyboard)
 
 @bot.message_handler(commands=['start','help'])
 def send_welcome(message):
