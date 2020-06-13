@@ -36,7 +36,7 @@ lviz = []
 for i in soup3.find_all('a',href=True):
     lviz.append(i['href'])
 
-pageai=requests.get("https://towardsdatascience.com/data-visualization/home")
+pageai=requests.get("https://towardsdatascience.com/artificial-intelligence/home")
 soup4 = BeautifulSoup(pageviz.content,'html.parser')
 t5 = soup4.find_all(class_="u-contentSansBold u-lineHeightTightest u-xs-fontSize24 u-paddingBottom2 u-paddingTop5 u-fontSize32")
 lai = []
