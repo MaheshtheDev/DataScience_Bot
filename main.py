@@ -12,10 +12,10 @@ server = Flask(__name__)
 
 git_acc = "https://github.com/maheshthedev"
 linkin = "https://www.linkedin.com/in/maheshthedev/"
-gsearch = "https://www.google.com/search?q=maheshthedev"
+ggsearch = "https://www.google.com/search?q=maheshthedev"
 sm_links = "<a href=\""+git_acc+"\">"+"GitHub"+"</a>"
 sm_links +=" · " + "<a href=\""+linkin+"\">"+"LinkedIn"+"</a>"
-sm_links +=" - "+ "<a href=\""+gsearch+"\">"+"MaheshtheDev"+"</a>"
+sm_links +=" - "+ "<a href=\""+ggsearch+"\">"+"MaheshtheDev"+"</a>"
 
 pageds=requests.get("https://towardsdatascience.com/data-science/home")
 soup1 = BeautifulSoup(pageds.content,'html.parser')
