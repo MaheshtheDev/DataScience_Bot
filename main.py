@@ -169,7 +169,7 @@ def getMessage():
 @server.route("/")
 def webhook():
     bot.remove_webhook()
-    bot.set_webhook(url='https://warm-ridge-74785.herokuapp.com/' + bot_token)
+    bot.set_webhook(url='https://datascience-bot.herokuapp.com/' + bot_token)
     return "!", 200
 
 
