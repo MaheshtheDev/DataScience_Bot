@@ -157,8 +157,6 @@ def send_message(message):
 def send_message(message):
     bot.send_message(message.chat.id,"Select the Category", reply_markup=reply_markup1())
 
-# bot.remove_webhook()
-# bot.polling()
 
 @server.route('/' + bot_token, methods=['POST'])
 def getMessage():
