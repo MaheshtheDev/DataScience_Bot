@@ -12,8 +12,10 @@ server = Flask(__name__)
 
 git_acc = "https://github.com/maheshthedev"
 linkin = "https://www.linkedin.com/in/maheshthedev/"
+gsearch = "https://www.google.com/search?q=maheshthedev"
 sm_links = "<a href=\""+git_acc+"\">"+"GitHub"+"</a>"
 sm_links +=" · " + "<a href=\""+linkin+"\">"+"LinkedIn"+"</a>"
+sm_links +=" - "+ "<a href=\""+gsearch+"\">"+"MaheshtheDev"+"</a>"
 
 pageds=requests.get("https://towardsdatascience.com/data-science/home")
 soup1 = BeautifulSoup(pageds.content,'html.parser')
@@ -144,7 +146,7 @@ def send_welcome(message):
 
 @bot.message_handler(commands=['dev'])
 def send_welcome(message):
-    bot.send_message(message.chat.id, "I'm made by MaheshtheDev.\nYou can Connect with my Developer!")
+    bot.send_message(message.chat.id, "I'm made by S v Mahesh Reddy.\nYou can Connect with my Developer!")
     bot.send_message(message.chat.id, sm_links,parse_mode='HTML')
 
 @bot.message_handler(commands=['trend'])
