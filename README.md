@@ -16,6 +16,7 @@ First it will show you the options to select the category from below
 * Machine Learning
 * Data Visualization
 * Artificial Intelligence
+
 After selecting the Category you will get the Latest News with respective to the Category
 
 ### `/trend`
@@ -36,7 +37,7 @@ After selecting the Category you will get the Trending News with respective to t
 This command show about the Developer details
 
 ### `/help`
-This command will help you if you lost somewhere. This shows you want Bot can do for you.
+This command will help you if you lost somewhere. This shows you, what Bot can do for you.
 
 ## Tech Stack
 Tech Stack used:
