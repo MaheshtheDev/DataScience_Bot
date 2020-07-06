@@ -3,10 +3,10 @@
 Telegram bot can get you all latest and trending articles related Data Science, Machine learning and Data Visualization
 
 You will have 4 commands:
-1. `/latest`
-2. `/trend`
-3. `/dev`
-4. `/help`
+1. [`/latest`](https://github.com/maheshthedev/DataScience_Bot#latest)
+2. [`/trend`](https://github.com/maheshthedev/DataScience_Bot#trend)
+3. [`/dev`](https://github.com/maheshthedev/DataScience_Bot#dev)
+4. [`/help`](https://github.com/maheshthedev/DataScience_Bot#help)
 
 ### `/latest`
 In the Latest command basically to get latest articles.
@@ -39,8 +39,7 @@ This command show about the Developer details
 ### `/help`
 This command will help you if you lost somewhere. This shows you, what Bot can do for you.
 
-## Tech Stack
-Tech Stack used:
+### Tech Stack used:
 1. Python
 2. Telegram API
 3. PyTelegramApiBOT lib
