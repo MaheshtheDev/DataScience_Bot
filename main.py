@@ -5,7 +5,7 @@ import requests
 from flask import Flask, request
 from bs4 import BeautifulSoup
 from telebot import types
-from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup, ReplyKeyboardRemove, ForceReply
+from types import InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup, ReplyKeyboardRemove, ForceReply
 bot_token = os.environ.get('TELAPITOKEN')
 bot = telebot.TeleBot(token=bot_token)
 server = Flask(__name__)
