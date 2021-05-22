@@ -8,13 +8,10 @@ from telegram.ext import (
     ConversationHandler,
     CallbackContext,
 )
-import telebot
-import time
 import os
 import requests
-from flask import Flask, request
 from bs4 import BeautifulSoup
-# server = Flask(__name__)
+bot_token = os.environ.get('TELAPITOKEN')
 
 # Enable logging
 logging.basicConfig(
@@ -286,7 +283,7 @@ def exit(update: Update, _: CallbackContext) -> int:
 
 def main() -> None:
     # Create the Updater and pass it your bot's token.
-    updater = Updater("1011166147:AAFP_n_ZATGiGIsCu3M8R4gBo-Vb3YMHtCM")
+    updater = Updater(bot_token)
 
     # Get the dispatcher to register handlers
     dispatcher = updater.dispatcher
@@ -319,7 +316,10 @@ def main() -> None:
     dispatcher.add_handler(conv_handler)
 
     # Start the Bot
-    updater.start_polling()
+    updater.start_webhook(listen="0.0.0.0",
+                      port=int(os.environ.get('PORT', 5000)),
+                      url_path=bot_token,
+                      webhook_url="https://datascience-bot.herokuapp.com/" + bot_token)
 
     updater.idle()
 
