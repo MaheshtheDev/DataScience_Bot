@@ -268,6 +268,15 @@ def ai(update: Update, _: CallbackContext) -> int:
         return TRENDING
 
 
+def dev(update: Update, _: CallbackContext) -> int:
+    """This is Display the Developer Information"""
+    update.message.reply_html(
+        "I'm made by S v Mahesh Reddy.\nYou can Connect with my Developer!",
+    )
+    update.message.reply_html(sm_links)
+    return ConversationHandler.END
+
+
 def exit(update: Update, _: CallbackContext) -> int:
     query = update.callback_query
     query.answer()
@@ -285,7 +294,7 @@ def main() -> None:
     # Setup conversation handler with the states Latest and Trending
     conv_handler = ConversationHandler(
         entry_points=[CommandHandler('start', start), CommandHandler(
-            'latest', latest), CommandHandler('trending', trending)],
+            'latest', latest), CommandHandler('trending', trending), CommandHandler('dev', dev)],
         states={
             LATEST: [
                 CallbackQueryHandler(ds, pattern='^' + 'dsl' + '$'),
