@@ -20,10 +20,6 @@ entrypoints==0.3
 filelock==3.0.12
 Flask==1.1.2
 idna==2.10
-ipykernel==5.5.3
-ipython==7.22.0
-ipython-genutils==0.2.0
-ipywidgets==7.6.3
 itsdangerous==1.1.0
 jedi==0.18.0
 Jinja2==2.11.3
