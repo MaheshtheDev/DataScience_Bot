@@ -2,6 +2,8 @@
 
 Telegram bot can get you all latest and trending articles related Data Science, Machine learning and Data Visualization
 
+Bot now updated to new version. With New User Experience
+
 You will have 4 commands:
 1. [`/latest`](https://github.com/maheshthedev/DataScience_Bot#latest)
 2. [`/trend`](https://github.com/maheshthedev/DataScience_Bot#trend)
