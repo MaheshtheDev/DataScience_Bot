@@ -169,11 +169,11 @@ def latest(update: Update, _: CallbackContext) -> int:
     reply_markup = InlineKeyboardMarkup(keyboard)
     if query is None:
         update.message.reply_text(
-            "Select the Category", reply_markup=reply_markup)
+            "Select the Category(Latest Articles)", reply_markup=reply_markup)
     else:
         logger.info("user get back to list")
         query.answer()
-        query.edit_message_text("Select the Category",
+        query.edit_message_text("Select the Category(Latest Articles)",
                                 reply_markup=reply_markup)
     return LATEST
 
@@ -197,7 +197,7 @@ def trending(update: Update, _: CallbackContext) -> int:
         ],
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
-    update.message.reply_text("Select the Category", reply_markup=reply_markup)
+    update.message.reply_text("Select the Category(Trending Articles)", reply_markup=reply_markup)
     return TRENDING
 
 
