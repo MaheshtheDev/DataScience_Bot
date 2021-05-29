@@ -192,8 +192,7 @@ def trending(update: Update, _: CallbackContext) -> int:
             InlineKeyboardButton("Data Visualization", callback_data='dvt'),
         ],
         [
-            InlineKeyboardButton("Artificial Intelligence",
-                                 callback_data='ait'),
+            InlineKeyboardButton("Artificial Intelligence", callback_data='ait'),
         ],
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
