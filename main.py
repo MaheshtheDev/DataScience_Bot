@@ -276,7 +276,7 @@ def dev(update: Update, _: CallbackContext) -> int:
 def exit(update: Update, _: CallbackContext) -> int:
     query = update.callback_query
     query.answer()
-    query.edit_message_text("Thanks for Checking the Articles")
+    query.edit_message_text("Thanks for Checking out the Articles!")
     return ConversationHandler.END
 
 
