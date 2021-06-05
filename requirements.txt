@@ -66,5 +66,5 @@ testpath==0.4.4
 toml==0.10.2
 tornado==6.1
 tzlocal==2.1
-urllib3==1.26.4
+urllib3==1.26.5
 virtualenv==20.4.3
