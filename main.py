@@ -180,6 +180,7 @@ def latest(update: Update, _: CallbackContext) -> int:
 
 def trending(update: Update, _: CallbackContext) -> int:
     """This Command will return list of Categories available in Trending Section"""
+    query = update.callback_query
     logger.info("User Requested the Trend Command")
     keyboard = [
         [
@@ -196,7 +197,14 @@ def trending(update: Update, _: CallbackContext) -> int:
         ],
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
-    update.message.reply_text("Select the Category(Trending Articles)", reply_markup=reply_markup)
+    if query is None:
+        update.message.reply_text(
+            "Select the Category(Latest Articles)", reply_markup=reply_markup)
+    else:
+        logger.info("user get back to list")
+        query.answer()
+        query.edit_message_text("Select the Category(Latest Articles)",
+                                reply_markup=reply_markup)
     return TRENDING
 
 
@@ -290,7 +298,7 @@ def main() -> None:
     # Setup conversation handler with the states Latest and Trending
     conv_handler = ConversationHandler(
         entry_points=[CommandHandler('start', start), CommandHandler(
-            'latest', latest), CommandHandler('trending', trending), CommandHandler('dev', dev)],
+            'latest', latest), CommandHandler('trend', trending), CommandHandler('dev', dev)],
         states={
             LATEST: [
                 CallbackQueryHandler(ds, pattern='^' + 'dsl' + '$'),
@@ -305,7 +313,8 @@ def main() -> None:
                 CallbackQueryHandler(ml, pattern='^' + 'mlt' + '$'),
                 CallbackQueryHandler(dv, pattern='^' + 'dvt' + '$'),
                 CallbackQueryHandler(ai, pattern='^' + 'ait' + '$'),
-                CallbackQueryHandler(trending, pattern='^' + 'trend' + '$')
+                CallbackQueryHandler(trending, pattern='^' + 'trend' + '$'),
+                CallbackQueryHandler(exit, pattern='^' + 'exit' + '$'),
             ]
         },
         fallbacks=[CommandHandler('start', start)],
