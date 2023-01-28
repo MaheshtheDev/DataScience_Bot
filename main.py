@@ -69,6 +69,7 @@ for i in t1:
     j1 = list(j[0])
     art_name.append(j1[0])
 
+
 art_nameds = art_name[:11]
 art_nameml = art_name[11:22]
 art_nameviz = art_name[22:33]
