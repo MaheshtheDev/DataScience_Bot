@@ -328,7 +328,7 @@ def main() -> None:
     updater.start_webhook(listen="0.0.0.0",
                       port=int(os.environ.get('PORT', 5000)),
                       url_path=bot_token,
-                      webhook_url="https://datascience-bot.herokuapp.com/" + bot_token)
+                      webhook_url="https://web-production-df2e.up.railway.app/" + bot_token)
 
     updater.idle()
 
